@@ -6,8 +6,13 @@ import { RootStackParamsList } from './RootNavigator';
 const topics = [
     {
         id:1,
-        title: 'Flat List demo',
+        title: 'Flat List Demo',
         screen: 'FlatListScreen',
+    },
+    {
+        id:2,
+        title:'Section List Demo',
+        screen: 'SectionListScreen',
     },
 ];
 
@@ -21,7 +26,7 @@ const HomeScreen:React.FC<Props> = ({navigation}) => {
         data={topics}
         renderItem={({item})=>(
             <TouchableOpacity style={styles.buttonContainer} onPress={()=> navigation.navigate(item.screen as keyof RootStackParamsList)}>
-                <Text style={styles.buttonText}>Flatlist Demo</Text>
+                <Text style={styles.buttonText}>{item.title}</Text>
             </TouchableOpacity>
         )}
       />
@@ -47,6 +52,7 @@ const styles = StyleSheet.create({
         padding:'4%',
         borderRadius:5,
         width:'80%',
+        marginBottom:10,
     },
     buttonText:{
         fontSize:18,
